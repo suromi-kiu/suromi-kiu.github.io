@@ -1,5 +1,5 @@
 const searchBar = document.getElementById("searchBar")
-const projects = document.querySelectorAll(".project-link")
+const projects = document.querySelectorAll(".project-card")
 
 searchBar.addEventListener("keyup", function(){
 

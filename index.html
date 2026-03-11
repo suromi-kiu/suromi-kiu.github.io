@@ -11,11 +11,14 @@
 
 <nav class="navbar">
 
-<div class="logo">suromi@portfolio</div>
+<div class="logo">suromi@portfolio:~$</div>
 
-<input type="text" id="searchBar" placeholder="search projects...">
+<input type="text" id="searchBar" placeholder="search project...">
 
+<div class="nav-links">
 <a href="index.html">home</a>
+<a href="#projects">projects</a>
+</div>
 
 </nav>
 
@@ -37,25 +40,28 @@
 </section>
 
 
-<section class="projects-section">
+<section id="projects" class="projects-section">
 
 <h2>projects</h2>
 
 <div class="projects" id="projectsList">
 
-<a class="project-link" href="projects/arch-dotfiles/index.html">
-> arch-dotfiles
-<span>my arch linux configuration</span>
+<a class="project-card" href="projects/arch-dotfiles/index.html">
+<div class="card-header">project_01</div>
+<div class="card-title">> arch-dotfiles</div>
+<div class="card-desc">custom arch linux configuration</div>
 </a>
 
-<a class="project-link" href="projects/arduino-radar/index.html">
-> arduino-radar
-<span>ultrasonic radar with servos</span>
+<a class="project-card" href="projects/arduino-radar/index.html">
+<div class="card-header">project_02</div>
+<div class="card-title">> arduino-radar</div>
+<div class="card-desc">ultrasonic radar with servos</div>
 </a>
 
-<a class="project-link" href="projects/deepweb-chat/index.html">
-> deepweb-chat
-<span>anonymous chat interface</span>
+<a class="project-card" href="projects/deepweb-chat/index.html">
+<div class="card-header">project_03</div>
+<div class="card-title">> deepweb-chat</div>
+<div class="card-desc">anonymous chat simulation</div>
 </a>
 
 </div>
