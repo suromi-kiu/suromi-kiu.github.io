@@ -1,8 +1,10 @@
 body{
 
-background:black;
+background:#0b0f14;
 color:#00ff9c;
+
 font-family:monospace;
+
 margin:0;
 
 }
@@ -12,12 +14,14 @@ margin:0;
 .navbar{
 
 display:flex;
-align-items:center;
+
 justify-content:space-between;
 
-padding:15px 40px;
+padding:20px 60px;
 
 border-bottom:1px solid #00ff9c;
+
+background:#0b0f14;
 
 }
 
@@ -27,98 +31,95 @@ font-weight:bold;
 
 }
 
-.nav-links a{
+.menu a{
 
-margin-left:20px;
+margin-left:25px;
+
 text-decoration:none;
+
 color:#00ff9c;
 
 }
 
-.nav-links a:hover{
+.menu a:hover{
 
 text-shadow:0 0 10px #00ff9c;
 
 }
 
-#searchBar{
+/* LAYOUT */
 
-background:black;
-border:1px solid #00ff9c;
+.container{
 
-color:#00ff9c;
+display:flex;
 
-padding:6px 10px;
+max-width:1400px;
 
-font-family:monospace;
+margin:auto;
+
+padding:40px;
 
 }
 
-/* HERO */
+/* SIDEBAR */
 
-.hero{
+.sidebar{
 
-display:flex;
-justify-content:center;
-align-items:center;
+width:260px;
 
-gap:40px;
-
-padding:60px;
+margin-right:40px;
 
 }
 
 .profile{
 
-width:140px;
-height:140px;
+width:120px;
+
+height:120px;
 
 border-radius:50%;
 
 border:2px solid #00ff9c;
 
-box-shadow:
-0 0 10px #00ff9c,
-0 0 20px #00ff9c;
+box-shadow:0 0 15px #00ff9c;
 
 }
 
-.intro h1{
+.bio{
 
-margin:0;
-font-size:36px;
+margin-top:10px;
 
-}
-
-/* PROJECTS */
-
-.projects-section{
-
-padding:40px 80px;
+opacity:0.8;
 
 }
 
-.projects{
+.social a{
 
-display:grid;
+display:block;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+margin-top:10px;
 
-gap:25px;
+color:#00ff9c;
 
-margin-top:30px;
+text-decoration:none;
 
 }
 
-.project-card{
+/* CONTENT */
+
+.content{
+
+flex:1;
+
+}
+
+.post{
 
 border:1px solid #00ff9c;
 
 padding:20px;
 
-text-decoration:none;
-
-color:#00ff9c;
+margin-top:25px;
 
 background:rgba(0,255,156,0.03);
 
@@ -126,39 +127,22 @@ transition:0.2s;
 
 }
 
-.card-header{
+.post:hover{
+
+box-shadow:0 0 20px #00ff9c;
+
+transform:translateY(-3px);
+
+}
+
+.tags span{
+
+border:1px solid #00ff9c;
+
+padding:3px 8px;
+
+margin-right:8px;
 
 font-size:12px;
-opacity:0.6;
-
-margin-bottom:10px;
-
-}
-
-.card-title{
-
-font-size:20px;
-margin-bottom:10px;
-
-}
-
-.card-desc{
-
-font-size:14px;
-opacity:0.8;
-
-}
-
-.project-card:hover{
-
-background:#00ff9c;
-
-color:black;
-
-transform:translateY(-5px);
-
-box-shadow:
-0 0 10px #00ff9c,
-0 0 30px #00ff9c;
 
 }

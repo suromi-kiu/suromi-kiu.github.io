@@ -1,74 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+
 <meta charset="UTF-8">
 <title>suromi</title>
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <nav class="navbar">
 
-<div class="logo">suromi@portfolio:~$</div>
+<div class="logo">suromi@terminal:~$</div>
 
-<input type="text" id="searchBar" placeholder="search project...">
+<div class="menu">
 
-<div class="nav-links">
-<a href="index.html">home</a>
-<a href="#projects">projects</a>
+<a href="#">home</a>
+<a href="#">projects</a>
+<a href="#">writeups</a>
+<a href="#">videos</a>
+
 </div>
 
 </nav>
 
 
-<section class="hero">
+<div class="container">
+
+
+<aside class="sidebar">
 
 <img src="profile.jpg" class="profile">
 
-<div class="intro">
+<h2>suromi</h2>
 
-<h1>> suromi</h1>
+<p class="bio">
+ethical hacker<br>
+arch linux user<br>
+pentesting student
+</p>
 
-<p>ethical hacker</p>
-<p>arch linux user</p>
-<p>pentesting student</p>
+<div class="social">
 
-</div>
-
-</section>
-
-
-<section id="projects" class="projects-section">
-
-<h2>projects</h2>
-
-<div class="projects" id="projectsList">
-
-<a class="project-card" href="projects/arch-dotfiles/index.html">
-<div class="card-header">project_01</div>
-<div class="card-title">> arch-dotfiles</div>
-<div class="card-desc">custom arch linux configuration</div>
-</a>
-
-<a class="project-card" href="projects/arduino-radar/index.html">
-<div class="card-header">project_02</div>
-<div class="card-title">> arduino-radar</div>
-<div class="card-desc">ultrasonic radar with servos</div>
-</a>
-
-<a class="project-card" href="projects/deepweb-chat/index.html">
-<div class="card-header">project_03</div>
-<div class="card-title">> deepweb-chat</div>
-<div class="card-desc">anonymous chat simulation</div>
-</a>
+<a href="#">github</a>
+<a href="#">twitter</a>
+<a href="#">youtube</a>
 
 </div>
 
-</section>
+</aside>
 
-<script src="script.js"></script>
+
+
+<main class="content">
+
+<h2>latest projects</h2>
+
+
+<div class="post">
+
+<h3>> arch dotfiles</h3>
+
+<p>
+custom arch linux configuration with hyprland
+</p>
+
+<div class="tags">
+
+<span>linux</span>
+<span>arch</span>
+<span>dotfiles</span>
+
+</div>
+
+</div>
+
+
+
+<div class="post">
+
+<h3>> arduino radar</h3>
+
+<p>
+ultrasonic radar using servos and lcd
+</p>
+
+<div class="tags">
+
+<span>arduino</span>
+<span>electronics</span>
+<span>radar</span>
+
+</div>
+
+</div>
+
+
+
+<div class="post">
+
+<h3>> deepweb chat</h3>
+
+<p>
+anonymous deep web style chat simulation
+</p>
+
+<div class="tags">
+
+<span>web</span>
+<span>javascript</span>
+<span>security</span>
+
+</div>
+
+</div>
+
+
+</main>
+
+</div>
 
 </body>
+
 </html>
