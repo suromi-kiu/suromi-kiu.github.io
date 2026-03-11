@@ -9,19 +9,39 @@
 
 <body>
 
-<div class="terminal">
+<nav class="navbar">
 
-<h1 class="glow">suromi@github</h1>
+<div class="logo">suromi@portfolio</div>
 
-<p>> ethical hacker</p>
-<p>> arch linux user</p>
-<p>> pentesting student</p>
+<input type="text" id="searchBar" placeholder="search projects...">
 
-<br>
+<a href="index.html">home</a>
+
+</nav>
+
+
+<section class="hero">
+
+<img src="profile.jpg" class="profile">
+
+<div class="intro">
+
+<h1>> suromi</h1>
+
+<p>ethical hacker</p>
+<p>arch linux user</p>
+<p>pentesting student</p>
+
+</div>
+
+</section>
+
+
+<section class="projects-section">
 
 <h2>projects</h2>
 
-<div class="projects">
+<div class="projects" id="projectsList">
 
 <a class="project-link" href="projects/arch-dotfiles/index.html">
 > arch-dotfiles
@@ -39,21 +59,10 @@
 </a>
 
 </div>
-<br>
 
-<h2>links</h2>
+</section>
 
-<ul>
-<li><a href="https://github.com/">github</a></li>
-<li><a href="#">blog</a></li>
-<li><a href="#">contact</a></li>
-</ul>
-
-<br>
-
-<p class="cursor">_</p>
-
-</div>
+<script src="script.js"></script>
 
 </body>
 </html>

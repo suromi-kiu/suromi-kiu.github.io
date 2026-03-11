@@ -1,82 +1,113 @@
-body {
+body{
 
 background:black;
 color:#00ff9c;
-font-family: monospace;
+font-family:monospace;
 margin:0;
-padding:40px;
 
 }
 
-.terminal{
+/* NAVBAR */
 
-max-width:800px;
-margin:auto;
+.navbar{
 
-}
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-h1{
+padding:15px 40px;
 
-font-size:40px;
-
-}
-
-.glow{
-
-text-shadow:
-0 0 5px #00ff9c,
-0 0 10px #00ff9c,
-0 0 20px #00ff9c;
+border-bottom:1px solid #00ff9c;
 
 }
 
-a{
+.logo{
+
+font-size:18px;
+font-weight:bold;
+
+}
+
+.navbar a{
 
 color:#00ff9c;
 text-decoration:none;
 
 }
 
-a:hover{
+#searchBar{
 
-text-shadow:0 0 10px #00ff9c;
+background:black;
+border:1px solid #00ff9c;
 
-}
+color:#00ff9c;
 
-ul{
+padding:6px 10px;
 
-list-style:none;
-padding-left:0;
-
-}
-
-.cursor{
-
-animation: blink 1s infinite;
+font-family:monospace;
 
 }
 
-@keyframes blink{
+/* HERO */
 
-0%{opacity:1;}
-50%{opacity:0;}
-100%{opacity:1;}
+.hero{
+
+display:flex;
+align-items:center;
+
+gap:40px;
+
+padding:60px;
+
+}
+
+.profile{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+border:2px solid #00ff9c;
+
+box-shadow:
+0 0 10px #00ff9c;
+
+}
+
+.intro h1{
+
+margin:0;
+font-size:36px;
+
+}
+
+/* PROJECTS */
+
+.projects-section{
+
+padding:40px 60px;
 
 }
 
 .projects{
+
 display:flex;
 flex-direction:column;
 gap:20px;
+
 margin-top:20px;
+
 }
 
 .project-link{
 
 display:block;
+
 padding:18px 20px;
 
 border:1px solid #00ff9c;
+
 border-radius:6px;
 
 text-decoration:none;
@@ -84,18 +115,21 @@ color:#00ff9c;
 
 font-size:18px;
 
-transition:0.2s;
-
 background:rgba(0,255,156,0.03);
+
+transition:0.2s;
 
 }
 
 .project-link span{
 
 display:block;
+
 font-size:14px;
+
 opacity:0.7;
-margin-top:5px;
+
+margin-top:6px;
 
 }
 
@@ -108,6 +142,6 @@ box-shadow:
 0 0 10px #00ff9c,
 0 0 25px #00ff9c;
 
-transform:translateX(6px);
+transform:translateX(5px);
 
 }
