@@ -7,6 +7,7 @@
 <title>arch dotfiles</title>
 
 <link rel="stylesheet" href="../../style.css">
+<script src="script.js"></script>
 
 </head>
 
@@ -25,25 +26,46 @@
 
 <div class="project-page">
 
-<h1>> arch dotfiles</h1>
+<h1>> KDE PLasma + ArchLinux</h1>
 
 <p>
 
-My personal Arch Linux configuration using:
+Installing KDE Plasma on Arch Linux is popular because it combines flexibility, performance, and modern software.
+
+One reason is customization. KDE Plasma is one of the most customizable desktop environments available. You can modify panels, window behavior, themes, icons, fonts, keyboard shortcuts, and desktop widgets. Arch Linux complements this because it lets you install only the components you want, so you can build a system that fits your exact workflow.
+
+Another reason is the rolling release model of Arch Linux. Instead of large version upgrades, Arch continuously delivers updates. This means you usually get new KDE Plasma features, Qt updates, and bug fixes very quickly after they are released.
+
+Performance is another advantage. Although KDE used to be considered heavy, modern versions are quite efficient. On Arch Linux you can install a minimal Plasma setup without extra applications, which keeps the system lightweight while still giving you a powerful desktop environment.
+
+Arch Linux also provides very recent software. Because the repositories are kept up to date, KDE Plasma on Arch tends to run newer versions than on many other distributions. This is useful for developers and users who want the newest features.
+
+Another benefit is control and learning. Arch Linux encourages users to understand how their system works. Installing and configuring KDE Plasma on Arch teaches you about Linux components, services, and configuration, which can be valuable if you want deeper knowledge of Linux.
+
+Finally, the Arch community and documentation are strong. The Arch Wiki is widely considered one of the best Linux documentation sources. It contains detailed guides for installing and configuring KDE Plasma, troubleshooting issues, and optimizing performance.
+
+For many users, the combination of Arch Linux and KDE Plasma provides a powerful, customizable, and modern Linux desktop environment.
 
 </p>
 
-<ul>
+<h2>Installing ArchLinux</h2>
 
-<li>Hyprland</li>
-<li>Waybar</li>
-<li>Kitty</li>
-<li>Neovim</li>
-
-</ul>
+<p>
+You should check if you are in efi mode
+</p>
 
 
-<h2>preview</h2>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+# If this command prints 64 or 32 then you are in UEFI
+cat /sys/firmware/efi/fw_platform_size
+</code></pre>
+</div>
+
 
 <img src="preview.png" class="preview">
 

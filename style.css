@@ -105,6 +105,7 @@ text-decoration:none;
 
 }
 
+
 /* CONTENT */
 
 .content{
@@ -159,6 +160,7 @@ font-size:12px;
 }
 
 
+/* CONTENT */
 
 .project-page{
 
@@ -201,5 +203,78 @@ text-decoration:none;
 background:#00ff9c;
 
 color:black;
+
+}
+
+
+/* copy button and code blocks */
+
+.terminal-code{
+
+background:#0b0f14;
+
+border:1px solid #00ff9c;
+
+border-radius:8px;
+
+margin-top:25px;
+
+overflow:hidden;
+
+}
+
+.terminal-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:#111821;
+
+padding:8px 14px;
+
+font-size:13px;
+
+border-bottom:1px solid #00ff9c;
+
+}
+
+.copy-btn{
+
+background:transparent;
+
+border:1px solid #00ff9c;
+
+color:#00ff9c;
+
+padding:3px 8px;
+
+cursor:pointer;
+
+font-family:monospace;
+
+}
+
+.copy-btn:hover{
+
+background:#00ff9c;
+
+color:black;
+
+}
+
+.terminal-code pre{
+
+margin:0;
+
+padding:18px;
+
+color:#00ff9c;
+
+font-family:monospace;
+
+overflow-x:auto;
 
 }
