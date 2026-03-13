@@ -207,7 +207,7 @@ color:black;
 }
 
 
-/* copy button and code blocks */
+/* -----------------copy button and code blocks----------------- */
 
 .terminal-code{
 
@@ -279,20 +279,68 @@ overflow-x:auto;
 
 }
 
-/* PDF Viewer Style*/
-.pdf-viewer {
-    width: 100%;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 10px;
-    background: #161b22;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+/* -------------PDF Viewer Style----------------*/
+
+.linux-window{
+    width:100%;
+    max-width:1000px;
+    margin:40px auto;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.7);
+    background:#0d1117;
 }
 
-.pdf-viewer iframe {
-    width: 100%;
-    height: 700px;
-    border: none;
-    border-radius: 8px;
+/* header bar */
+
+.window-header{
+    display:flex;
+    align-items:center;
+    padding:10px 14px;
+    background:#161b22;
+    border-bottom:1px solid #30363d;
+    font-family:monospace;
 }
+
+/* buttons */
+
+.window-buttons{
+    display:flex;
+    gap:8px;
+    margin-right:15px;
+}
+
+.btn{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{
+    background:#ff5f56;
+}
+
+.yellow{
+    background:#ffbd2e;
+}
+
+.green{
+    background:#27c93f;
+}
+
+/* title */
+
+.window-title{
+    color:#8b949e;
+    font-size:14px;
+}
+
+/* iframe */
+
+.linux-window iframe{
+    width:100%;
+    height:700px;
+    border:none;
+    background:white;
+}
+
