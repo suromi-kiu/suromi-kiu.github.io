@@ -345,20 +345,62 @@ overflow-x:auto;
 
 /*-----------------Image Style-------------------*/
 
+/* container */
+
 .preview-block{
     margin-top:30px;
 }
 
-.prompt{
-    font-family:monospace;
-    color:#00ff9c;
-    margin-bottom:10px;
+/* linux window */
+
+.image-window{
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.6);
 }
+
+/* top bar */
+
+.window-bar{
+    display:flex;
+    align-items:center;
+    background:#1f2933;
+    padding:10px 14px;
+    font-family:monospace;
+}
+
+/* buttons */
+
+.window-buttons{
+    display:flex;
+    gap:8px;
+    margin-right:14px;
+}
+
+.window-buttons span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+.red{ background:#ff5f56; }
+.yellow{ background:#ffbd2e; }
+.green{ background:#27c93f; }
+
+/* title */
+
+.window-title{
+    color:#c9d1d9;
+    font-size:14px;
+}
+
+/* image preview */
 
 .preview-img{
     width:100%;
-    border:1px solid #00ff9c;
-    border-radius:8px;
+    display:block;
+    border-top:1px solid #00ff9c;
     cursor:pointer;
     transition:transform 0.25s ease, box-shadow 0.25s ease;
 }

@@ -7,6 +7,7 @@
 <title>Arch Linux Installation</title>
 
 <link rel="stylesheet" href="../../style.css">
+<script src="../../image_clicker.js"></script>
 
 </head>
 
@@ -106,16 +107,26 @@ From this comparison, it can be deduced that the best terminal emulator for stud
 In conclusion, both Kitty Terminal and GNOME Terminal are valuable tools for students working in Linux environments. GNOME Terminal offers simplicity, stability, and ease of use, making it ideal for beginners and for users who prefer a straightforward experience. Kitty Terminal, on the other hand, provides powerful features, superior performance, and extensive customization options that can enhance productivity for more advanced users. By understanding the strengths and limitations of each terminal emulator, students can choose the tool that best supports their learning and development in the Linux ecosystem.
 </p>
 
+<br><br>
 
 <div class="preview-block">
-<p class="prompt">suromi@archlinux:~/images$ cat kitty-terminal.png</p>
+<div class="image-window">
+<div class="window-bar">
+<div class="window-buttons">
+<span class="red"></span>
+<span class="yellow"></span>
+<span class="green"></span>
+</div>
+<div class="window-title">
+suromi@archlinux:~/Images$ kitty +kitten -icat kitty-terminal.png
+</div>
+</div>
 <img src="kitty-terminal.png" class="preview-img" onclick="openImage(this)">
 </div>
-
-
-<div id="image-viewer" onclick="closeImage()">
-    <img id="fullscreen-img">
 </div>
 
 </body>
+<div id="image-viewer" onclick="closeImage()">
+<img id="fullscreen-img">
+</div>
 </html>
