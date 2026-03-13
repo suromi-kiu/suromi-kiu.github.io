@@ -163,46 +163,37 @@ font-size:12px;
 /* CONTENT */
 
 .project-page{
-
 max-width:900px;
-
 margin:auto;
-
 padding:40px;
-
+line-height:1.6;
 }
 
 .preview{
-
 width:100%;
-
 margin-top:20px;
-
 border:1px solid #00ff9c;
-
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 .github-btn{
-
 display:inline-block;
-
 margin-top:20px;
-
 padding:10px 18px;
-
 border:1px solid #00ff9c;
-
 color:#00ff9c;
-
 text-decoration:none;
-
+border-radius:6px;
+transition:all 0.25s ease;
 }
 
 .github-btn:hover{
 
 background:#00ff9c;
-
 color:black;
+box-shadow: 0 0 10px #00ff9c;
 
 }
 
@@ -344,3 +335,10 @@ overflow-x:auto;
     background:white;
 }
 
+.linux-window{
+    transition:transform 0.2s ease;
+}
+
+.linux-window:hover{
+    transform:translateY(-4px);
+}
