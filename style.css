@@ -278,3 +278,21 @@ font-family:monospace;
 overflow-x:auto;
 
 }
+
+/* PDF Viewer Style*/
+.pdf-viewer {
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 10px;
+    background: #161b22;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.pdf-viewer iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+    border-radius: 8px;
+}
