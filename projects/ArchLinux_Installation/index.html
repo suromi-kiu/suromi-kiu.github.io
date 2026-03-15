@@ -9,42 +9,110 @@
 <link rel="stylesheet" href="../../style.css">
 
 </head>
-
 <body>
 
 <nav class="navbar">
-
-<div class="logo">suromi@terminal:~/arch-dotfiles$</div>
-
+<div class="logo">suromi@terminal:~/arch-hyprland$</div>
 <div class="menu">
 <a href="../../index.html">home</a>
 </div>
-
 </nav>
 
 
 <div class="project-page">
 
 <h1>> Installing ArchLinux</h1>
-
+<br>
 <p>
+The goal of this guide is to help new users perform a **clean and minimal installation of Arch Linux** on a computer using a **UEFI system**. This guide focuses only on installing the base Arch Linux system without adding any desktop environments, window managers, or extra graphical software.
+<br><br>
+The process begins with booting into the Arch Linux installation environment and preparing the system for installation. This includes verifying the internet connection, synchronizing the system clock, and partitioning the disk. After the disk is prepared, the guide continues with formatting the partitions and mounting them correctly so the base system can be installed.
+<br><br>
+Next, the guide covers installing the **core Arch Linux packages**, generating the filesystem table, and entering the new system environment to configure important components such as the **hostname, locale, time zone, and root password**. These steps are essential for creating a fully functional base system that can boot properly.
+<br><br>
+The guide also explains how to install and configure a **bootloader**, allowing the system to start correctly after rebooting. Once this is completed, the installation process ends with unmounting the partitions and restarting the system into the newly installed Arch Linux environment.
+<br><br>
+This guide is meant to be followed together with the official documentation available in the <a href="https://wiki.archlinux.org/title/Installation_guide">Arch Wiki</a>, which provides deeper explanations for each step. The wiki is extremely useful if any configuration needs to be adjusted or if something changes in the installation process in the future.
+<br><br>
+By the end of this guide, the user will have a **minimal Arch Linux system installed and ready to be customized** according to their needs, whether they later choose to install a desktop environment, a window manager, development tools, or keep the system as a lightweight terminal-based environment.
 </p>
+<br><br>
 
-<p>
-You should check if you are in uefi mode
-</p>
-
-
+<h2>Set up keyboard layout</h2>
+<br>
+<p>If you want to know all the available keyboard maps, you must apply the next command</p>
+<br>
 <div class="terminal-code">
 <div class="terminal-header">
 <span>terminal</span>
 <button class="copy-btn">copy</button>
 </div>
 <pre><code id="code1">
-# If this command prints 64 or 32 then you are in UEFI
-cat /sys/firmware/efi/fw_platform_size
+ls /usr/share/kbd/keymaps/**/*.map.gz 
 </code></pre>
 </div>
+
+<br>
+<p>Also you can search an specific keyboard map by using <a href="https://man.archlinux.org/man/grep.1.en">grep</a>, in this case, I am looking for an english keybaord</p>
+<br>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+ls /usr/share/kbd/keymaps/**/*.map.gz | grep en 
+</code></pre>
+</div>
+
+<br>
+<p>Now you can load the layout</p>
+<br>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+loadkeys it
+</code></pre>
+</div>
+<br><br>
+
+<h2>Internet Connection</h2>
+<br>
+<p>By running the next command, you should see an output like this</p>
+<br>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+loadkeys it
+</code></pre>
+</div>
+
+<div class="preview-block">
+<div class="image-window">
+<div class="window-bar">
+<div class="window-buttons">
+<span class="red"></span>
+<span class="yellow"></span>
+<span class="green"></span>
+</div>
+<div class="window-title">
+suromi@archlinux:~/Images$ kitty +kitten -icat images/ping_output.png
+</div>
+</div>
+<img src="images/ping_output.png" class="preview-img" onclick="openImage(this)">
+</div>
+</div>
+
+<div id="image-viewer" onclick="closeImage()">
+<img id="fullscreen-img">
+</div>
+
 
 
 <h2>repository</h2>
@@ -57,7 +125,7 @@ view source code
 
 </div>
 
-<script src="script.js"></script>
-
+<script src="../../image_clicker.js"></script>
+<script src="../../copy_button.js"></script>
 </body>
 </html>
