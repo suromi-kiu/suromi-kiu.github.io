@@ -1,5 +1,3 @@
-<script>
-
 function openImage(img){
     const viewer = document.getElementById("image-viewer");
     const fullscreen = document.getElementById("fullscreen-img");
@@ -18,4 +16,3 @@ document.addEventListener("keydown", function(e){
     }
 });
 
-</script>
