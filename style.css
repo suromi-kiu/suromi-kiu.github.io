@@ -9,6 +9,16 @@ margin:0;
 
 }
 
+/* Link style */
+a{
+    color:#58a6ff;
+    text-decoration:none;
+}
+
+a:hover{
+    color:#00ff9c;
+    text-shadow:0 0 6px #00ff9c;
+}
 /* NAVBAR */
 
 .navbar{
