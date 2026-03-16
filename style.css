@@ -431,3 +431,32 @@ overflow-x:auto;
     border:2px solid #00ff9c;
     border-radius:10px;
 }
+
+/* Table Style */
+
+.hacker-table{
+    margin: 40px auto;
+    border-collapse: collapse;
+    width: 70%;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+.hacker-table th,
+.hacker-table td{
+    border: 1px solid #00ff00;
+    padding: 12px;
+}
+
+.hacker-table th{
+    background: #001100;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.hacker-table tr:nth-child(even){
+    background: #000d00;
+}
+
+.hacker-table tr:hover{
+    background: #003300;
+    box-shadow: 0 0 10px #00ff00 inset;
+}
