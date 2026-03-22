@@ -147,6 +147,34 @@ systemctl enable systemd-timesyncd.service
 
 <h2>Disk Partitioning</h2>
 
+<p>First, you have to check your device, you can use the following command:</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+lsblk
+</code></pre>
+</div>
+<br><br>
+
+<p>You also can Use fdisk:</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+fdisk -l
+</code></pre>
+</div>
+<br><br>
+
+<p>I am going to use the following partitions by the installation</p>
+
+<br><br>
+
 <table class="hacker-table">
     <thead>
         <tr>
@@ -178,7 +206,7 @@ systemctl enable systemd-timesyncd.service
 <span class="green"></span>
 </div>
 <div class="window-title">
-suromi@archlinux:~/Images$ kitty +kitten icat kitty-terminal.png
+suromi@archlinux:~/Images$ kitty +kitten icat cfdisk.png
 </div>
 </div>
 <img src="images/cfdisk.png" class="preview-img" onclick="openImage(this)">
@@ -187,9 +215,466 @@ suromi@archlinux:~/Images$ kitty +kitten icat kitty-terminal.png
 <div id="image-viewer" onclick="closeImage()">
 <img id="fullscreen-img">
 </div>
+<br><br>
+
+<h2>Formating and Mounting partitions</h2>
+
+<p>I chose btrfs as filesystem due to is generally considered better than ext4 for modern desktop or workstation use because of its advanced data integrity, snapshot, and volume management features:</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+mkfs.fat -F 32 /dev/sda1 
+mkfs.btrfs /dev/sda2
+mount /dev/sda2 /mnt
+</code></pre>
+</div>
+<br><br>
+
+<p>Lets Mount the btrfs and efi filesystems, I will compress with zstd because it provides the best balance of high compression ratios, fast compression speeds, and low CPU usage:</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+mount -o compress=zstd,subvol=@ /dev/sda2 /mnt
+mkdir -p /mnt/home
+mount -o compress=zstd,subvol=@home /dev/sda2 /mnt/home
+
+# if we choose /boot instead of /efi we are going to get some system crash if we tried to restore the root subvolume 
+mkdir -p /mnt/efi
+mount /dev/sda1 /mnt/efi
+</code></pre>
+</div>
+<br><br>
+
+<h2>Installing essential packages</h2>
+
+<p>In this section we are installing some important packages with pacstrap</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+pacstrap -K /mnt base linux linux-firmware base-devel git zsh sudo man grub efibootmgr nvim networkmanager wireplumber pipewire pipewire-alsa pipewire-jack pipewire-pulse inotify-tools btrfs-progs timeshift grub-btrfs 
+</code></pre>
+</div>
+<br><br>
+
+<h2>Fstab</h2>
+
+<p>Use the following command to generate an fstab file</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+genfstab -U /mnt >> /mnt/etc/fstab
+</code></pre>
+</div>
+<br><br>
+
+<h2>Chroot</h2>
+
+<p>We are going directly interact with our system</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+arch-chroot /mnt
+</code></pre>
+</div>
+<br><br>
+
+<h2>Time</h2>
+
+<p>Set the time zone by the next command</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+ln -sf /usr/share/zoneinfo/Area/Location /etc/localtime
+</code></pre>
+</div>
+<br><br>
+
+<p>Then we have to generate the /etc/adjtime</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+hwclock --systohc
+</code></pre>
+</div>
+<br><br>
+
+<h2>Localization</h2>
+
+<p>To set the correct languague and region we should edit /etc/locale.gen and uncomment the UTF-8 locales (in my case #en_US.UTF-8)</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+nvim /etc/locale.gen
+</code></pre>
+</div>
+<br><br>
+
+<div class="preview-block">
+<div class="image-window">
+<div class="window-bar">
+<div class="window-buttons">
+<span class="red"></span>
+<span class="yellow"></span>
+<span class="green"></span>
+</div>
+<div class="window-title">
+suromi@archlinux:~/Images$ kitty +kitten icat locales.png
+</div>
+</div>
+<img src="images/locales.png" class="preview-img" onclick="openImage(this)">
+</div>
+</div>
+<div id="image-viewer" onclick="closeImage()">
+<img id="fullscreen-img">
+</div>
+<br><br>
+
+<p>The next step is generate the locales by running</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+locale-gen
+</code></pre>
+</div>
+<br><br>
+
+<p>To set up the LANG variable we have to create the locale.conf</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+</code></pre>
+</div>
+<br><br>
+
+<p>Then we are setting the console keyboard layout</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+echo "KEYMAP=en" > /etc/vconsole.conf
+</code></pre>
+</div>
+<br><br>
+
+<h2>Network configuration</h2>
+
+<p>In order to assing and identifiable name to our system, we need to create the hostname file</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+echo "PedroArchlinux" > /etc/hostname
+</code></pre>
+</div>
+<br><br>
+
+<p>After creating the hostname file, we are going to add the following line in /etc/hosts (you can use nvim to open the file)</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+127.0.0.1 localhost
+::1 localhost
+127.0.1.1 PedroArchlinux
+</code></pre>
+</div>
+<br><br>
+
+<h2>Creating an user</h2>
+
+<p>To create an user we must use the following commands</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+useradd -mG wheel pedro
+passwd pedro
+</code></pre>
+</div>
+<br><br>
+
+<p>To let members of wheel group we have to open the file /etc/sudoers and uncomment an specific line (you can use nvim)</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+## Uncomment to allow members of group wheel to execute any command
+%wheel ALL=(ALL:ALL) ALL
+</code></pre>
+</div>
+<br><br>
+
+<div class="preview-block">
+<div class="image-window">
+<div class="window-bar">
+<div class="window-buttons">
+<span class="red"></span>
+<span class="yellow"></span>
+<span class="green"></span>
+</div>
+<div class="window-title">
+suromi@archlinux:~/Images$ kitty +kitten icat sudoers.png
+</div>
+</div>
+<img src="images/sudoers.png" class="preview-img" onclick="openImage(this)">
+</div>
+</div>
+<div id="image-viewer" onclick="closeImage()">
+<img id="fullscreen-img">
+</div>
+<br><br>
+
+<h2>Boot loader</h2>
+
+<p>Now we are going to install grub</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB 
+</code></pre>
+</div>
+<br><br>
+
+<p>Then generate the grub config</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+</div>
+<br><br>
+
+<h2>Umount and Reboot</h2>
+
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+exit
+umount -R /mnt
+reboot
+</code></pre>
+</div>
+<br><br>
+
+<h2>Last Settings</h2>
+
+<p>After rebooting and login, we have to connect our system to internet, we are going to use nmcli, but first we have to enable networkmanager</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo systemctl enable Networkmanager
+</code></pre>
+</div>
+<br><br>
+
+<p>After that we can use nmcli (repalce SSID with your network name and pass with your network's password)</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+nmcli dev wifi connect <SSID> password <pass>
+</code></pre>
+</div>
+<br><br>
+
+<p>Enable the time synchronization service</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+timedatectl set-ntp true
+</code></pre>
+</div>
+<br><br>
+
+<h2>Automatic Snapshots</h2>
+
+<p>By doing automatic snapshots we have to edit the grub-btrfs</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo systemctl --edit --full grub-btrfsd
+# modify the following 
+# line ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto
+# then enable the grub-btrfsd
+sudo systemctl enable grub-btrfsd
+</code></pre>
+</div>
+<br><br>
+
+<h2>Installing yay</h2>
+
+<p>Yay ("Yet another Yogurt") is a popular, Go-language-based AUR (Arch User Repository) helper for Arch Linux that streamlines installing packages</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+# After installing yay we must install timeshift-autosnap 
+yay -S timeshift-autosnap
+</code></pre>
+</div>
+<br><br>
+
+<h2>Installing nvidia Drivers</h2>
+
+<p>If you have a nvidia card, you might be intereted in the following steps to install your card's drivers</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+# I am going to use nvidia-dkms and egl-wayland, beacuse I use hyprland and KDE Plasma but if you are not going to use wayland you can avoid installing eg-wayland
+sudo pacman -S nvdia-dkms nvidia-utils nvidia-settings linux-headers egl-wayland
+</code></pre>
+</div>
+<br><br>
+
+<p>Enable DRM Kernel Mode Settings</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo nvim /etc/default/grub
+# find the line GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet" and add the following line GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia_drm.modeset=1"
+</code></pre>
+</div>
+<br><br>
+
+<p>Then regenerate the GRUB</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+</div>
+<br><br>
+
+<p>Adding nvidia modules to initramfs</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo nvim /etc/mkinitcpio.conf
+# find the line which contains MODULES=() and add MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+</code></pre>
+</div>
+<br><br>
+
+<p>Adding nvidia modules to mkinitcpio.conf</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo nvim /etc/mkinitcpio.conf
+# find the line which contains MODULES=() and add MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+</code></pre>
+</div>
+<br><br>
+
+<p>rebuilding mkinitcpio and reboot system</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo mkinitcpio -P
+reboot
+</code></pre>
+</div>
+<br><br>
+
+<p>check if the Nvidia drivers are correctly installed</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+nvidia-smi
+</code></pre>
+</div>
+<br><br>
+
+<h2>The end</h2>
+<p>Have a nice day sr :)</p>
 
 </div>
-
 <script src="../../files/image_clicker.js"></script>
 <script src="../../files/copy_button.js"></script>
 </body>
