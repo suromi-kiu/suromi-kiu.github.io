@@ -158,19 +158,35 @@ systemctl enable systemd-timesyncd.service
     <tbody>
         <tr>
             <td>/dev/sda1 or /dev/nvme0n1p1</td>
-            <td>root</td>
-            <td>Active</td>
+            <td>512M</td>
+            <td>EFI system</td>
+        </tr>
+        <tr>
+            <td>/dev/sda2 or /dev/nvme0n1p2</td>
+            <td>All the remaining space</td>
+            <td>Linux filesystem</td>
         </tr>
     </tbody>
 </table>
-
-<h2>repository</h2>
-
-<a class="github-btn" href="https://github.com/suromi-kiu">
-
-view source code
-
-</a>
+<br><br>
+<div class="preview-block">
+<div class="image-window">
+<div class="window-bar">
+<div class="window-buttons">
+<span class="red"></span>
+<span class="yellow"></span>
+<span class="green"></span>
+</div>
+<div class="window-title">
+suromi@archlinux:~/Images$ kitty +kitten icat kitty-terminal.png
+</div>
+</div>
+<img src="images/cfdisk.png" class="preview-img" onclick="openImage(this)">
+</div>
+</div>
+<div id="image-viewer" onclick="closeImage()">
+<img id="fullscreen-img">
+</div>
 
 </div>
 
