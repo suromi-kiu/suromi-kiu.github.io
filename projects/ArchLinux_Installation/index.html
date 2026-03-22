@@ -171,9 +171,19 @@ fdisk -l
 </div>
 <br><br>
 
-<p>I am going to use the following partitions by the installation</p>
-
+<p>To make the partitions we can use cfdisk:</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+cfdisk /dev/sda
+</code></pre>
+</div>
 <br><br>
+
+<p>I am going to use the following partitions by the installation</p>
 
 <table class="hacker-table">
     <thead>
@@ -515,7 +525,7 @@ reboot
 <button class="copy-btn">copy</button>
 </div>
 <pre><code id="code1">
-sudo systemctl enable Networkmanager
+sudo systemctl enable NetworkManager
 </code></pre>
 </div>
 <br><br>
