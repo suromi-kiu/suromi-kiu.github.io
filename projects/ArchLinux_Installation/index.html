@@ -613,7 +613,7 @@ sudo pacman -S nvdia-dkms nvidia-utils nvidia-settings linux-headers egl-wayland
 </div>
 <pre><code id="code1">
 sudo nvim /etc/default/grub
-# find the line GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet" and add the following line GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia_drm.modeset=1"
+# find the line GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet" and add the following line GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1"
 </code></pre>
 </div>
 <br><br>
@@ -631,19 +631,6 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 <br><br>
 
 <p>Adding nvidia modules to initramfs</p>
-<div class="terminal-code">
-<div class="terminal-header">
-<span>terminal</span>
-<button class="copy-btn">copy</button>
-</div>
-<pre><code id="code1">
-sudo nvim /etc/mkinitcpio.conf
-# find the line which contains MODULES=() and add MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-</code></pre>
-</div>
-<br><br>
-
-<p>Adding nvidia modules to mkinitcpio.conf</p>
 <div class="terminal-code">
 <div class="terminal-header">
 <span>terminal</span>
