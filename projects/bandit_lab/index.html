@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>arch dotfiles</title>
+
+<link rel="stylesheet" href="../../files/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">suromi@terminal:~/arch-dotfiles$</div>
+
+<div class="menu">
+<a href="../../index.html">home</a>
+</div>
+
+</nav>
+
+
+<div class="project-page">
+
+<h1>> Playing the bandit lab</h1>
+
+<p>
+In this guide, we are going to complete the bandit lab by establishing ssh connections. You can check every exercise clicking on <a href="https://overthewire.org/wargames/bandit/">Bandit lab</a>
+</p>
+
+<h2>How to establish a ssh connection</h2>
+<p>We can use the command ssh to establish a connection, in order to make a connection between our machine and bandit, we have to use the port 2220. Check the following example</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+# Use: ssh user@server -p 2220 (-p is the port in which we are going to stablish the connection)
+ssh bandit0@bandit.labs.overthewire.org -p 2220 
+</code></pre>
+</div>
+
+<br>
+<p>If you want a way to make a ssh connection that provides you more options such as, providing password or sending commands, you can use sshpass instead of ssh. Check the example</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sshpass -p "PASSWORD" ssh bandit0@bandit.labs.overthewire.org -p 2220 
+
+# if you want to send a command you have to include the command at the end of the sentence, EX:
+sshpass -p "PASSWORD" ssh bandit0@bandit.labs.overthewire.org -p 2220 "whoami" 
+</code></pre>
+</div>
+
+<br>
+<p>Another way is using my script providing the user and the password, you can get it by cloning <a href="https://github.com/suromi-kiu/Bash_functions.git">Bash functions</a></p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+# First we have to clone the repository
+git clone https://github.com/suromi-kiu/Bash_functions.git
+
+# Then go inside the directory called Bash_functions and search the script called 'bandit_connection.sh', Check the example
+./bandit_connection.sh USER PASSWORD
+
+# Another example to make the process clear (The password of the user bandit0 is bandit0 :) )
+./bandit_connection.sh bandit0 bandit0
+</code></pre>
+</div>
+
+
+</div>
+<script src="../../files/script.js"></script>
+</body>
+</html>

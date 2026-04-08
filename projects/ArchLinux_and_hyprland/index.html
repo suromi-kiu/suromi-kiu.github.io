@@ -28,24 +28,62 @@
 <h1>> Installing ArchLinux + hyprland</h1>
 
 <p>
+In this Guide we will install hyprland as our WM on ArchLinux, we also going to use me <a href="https://github.com/suromi-kiu/Hypr-dotfiles">Hypr-dotfiles</a>, enjoy it.
 </p>
+<br><br>
+
+<h2>Installation</h2>
 
 <p>
-You should check if you are in uefi mode
+Before Installing hyprland, you should Install an basic Archlinux system, you can use an installation guide by clicking the following link <a href="../ArchLinux_Installation/index.html">ArchLinux_Installation</a>
 </p>
 
-
+<p>First we have to install some packages that are important</p>
 <div class="terminal-code">
 <div class="terminal-header">
 <span>terminal</span>
 <button class="copy-btn">copy</button>
 </div>
 <pre><code id="code1">
-# If this command prints 64 or 32 then you are in UEFI
-cat /sys/firmware/efi/fw_platform_size
+sudo pacman -S hyprland waybar kitty dunst hyprpaper xdg-desktop-portal-hyprlan sddm
 </code></pre>
 </div>
 
+<p>After installing all the packages, we can start hyprland by typing hyprland, but before starting hyprland, we need to enable the sddm service</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo systemctl enable sddm
+</code></pre>
+</div>
+
+<p>You can Install a new theme for sddm, I will install the sddm astronaut theme</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo pacman -S sddm-astronaut-theme
+</code></pre>
+</div>
+
+<p>We need to configure the sddm.conf and add "sddm-astronaut-theme" in the '[theme] current=' section</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+# If you do not have the .config file, you can create it by doing the following command
+sddm --example-config
+# Then open the config file, it is commonly located in /etc/sddm.conf
+nvim /etc/sddm.conf
+</code></pre>
+</div>
 
 <h2>repository</h2>
 
