@@ -460,3 +460,43 @@ overflow-x:auto;
     background: #003300;
     box-shadow: 0 0 10px #00ff00 inset;
 }
+
+
+/* -------------------- Projects index Sections -------------------- */
+.toc {
+  border: 1px solid #00ffcc;
+  padding: 15px;
+  margin: 30px 0;
+  background-color: rgba(0, 20, 20, 0.5);
+  box-shadow: 0 0 10px #00ffcc33;
+}
+
+.toc p {
+  margin-bottom: 10px;
+  color: #00ffcc;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.toc li {
+  margin: 5px 0;
+}
+
+.toc a {
+  color: #00ffcc;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+/* sección activa */
+.toc a.active {
+  background-color: #00ffcc;
+  color: black;
+  padding: 2px 6px;
+}
