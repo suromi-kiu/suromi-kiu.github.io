@@ -476,22 +476,39 @@ overflow-x:auto;
   color: #00ffcc;
 }
 
+/* estructura tipo árbol */
 .toc ul {
   list-style: none;
-  padding: 0;
+  padding-left: 15px;
+  border-left: 1px solid #00ffcc55;
 }
 
+/* separación + posicion para el ">" */
 .toc li {
-  margin: 5px 0;
+  margin: 8px 0;
+  position: relative;
+  padding-left: 10px;
 }
 
+/* símbolo tipo terminal */
+.toc li::before {
+  content: ">";
+  position: absolute;
+  left: -10px;
+  color: #00ffaa;
+}
+
+/* links */
 .toc a {
   color: #00ffcc;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
+/* hover con glow + glitch leve */
 .toc a:hover {
   text-shadow: 0 0 5px #00ffcc;
+  animation: glitch 0.3s infinite;
 }
 
 /* sección activa */
@@ -499,4 +516,23 @@ overflow-x:auto;
   background-color: #00ffcc;
   color: black;
   padding: 2px 6px;
+}
+
+/* glitch suave */
+@keyframes glitch {
+  0% {
+    text-shadow: 0 0 5px #00ffcc;
+  }
+  25% {
+    text-shadow: 1px 0 #00ffcc, -1px 0 #00ffaa;
+  }
+  50% {
+    text-shadow: -1px 0 #00ffcc, 1px 0 #00ffaa;
+  }
+  75% {
+    text-shadow: 1px 0 #00ffaa, -1px 0 #00ffcc;
+  }
+  100% {
+    text-shadow: 0 0 5px #00ffcc;
+  }
 }
