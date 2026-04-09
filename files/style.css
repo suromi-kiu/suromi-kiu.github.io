@@ -682,3 +682,21 @@ overflow-x:auto;
     transform: translateY(0);
   }
 }
+
+/* ========================= */
+/* GLITCHED TAGS */
+/* ========================= */
+.tags span.highlight {
+  background: #00ff9c;
+  color: black;
+  animation: glowBlink 0.8s infinite alternate;
+}
+/* animation */
+@keyframes glowBlink {
+  0% {
+    box-shadow: 0 0 5px #00ff9c;
+  }
+  100% {
+    box-shadow: 0 0 20px #00ff9c;
+  }
+}

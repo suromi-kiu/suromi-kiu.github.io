@@ -68,10 +68,23 @@ function filterPosts() {
 function renderPosts(filtered) {
   const start = (currentPage - 1) * postsPerPage;
   const paginated = filtered.slice(start, start + postsPerPage);
-
-  posts.forEach(p => p.style.display = "none");
-  paginated.forEach(p => p.style.display = "block");
-
+  posts.forEach(p => {
+    p.style.display = "none";
+    // quit highlights
+    p.querySelectorAll(".tags span").forEach(tag => {
+      tag.classList.remove("highlight");
+    });
+  });
+  paginated.forEach(p => {
+    p.style.display = "block";
+    // Selected highlights
+    p.querySelectorAll(".tags span").forEach(tag => {
+      const tagText = tag.textContent.toLowerCase();
+      if (selectedTags.includes(tagText)) {
+        tag.classList.add("highlight");
+      }
+    });
+  });
   renderPagination(filtered.length);
 }
 
