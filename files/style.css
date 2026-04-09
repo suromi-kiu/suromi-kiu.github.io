@@ -9,22 +9,6 @@ margin:0;
 
 }
 
-/* NAVBAR */
-
-.navbar{
-
-display:flex;
-
-justify-content:space-between;
-
-padding:20px 60px;
-
-border-bottom:1px solid #00ff9c;
-
-background:#0b0f14;
-
-}
-
 .logo{
 
 font-weight:bold;
@@ -58,16 +42,6 @@ max-width:1400px;
 margin:auto;
 
 padding:40px;
-
-}
-
-/* SIDEBAR */
-
-.sidebar{
-
-width:260px;
-
-margin-right:40px;
 
 }
 
@@ -537,6 +511,7 @@ overflow-x:auto;
   }
 }
 
+/* -------------------- added 09/04/2026 -------------------- */
 /* ========================= */
 /* SEARCH SYSTEM */
 /* ========================= */
@@ -649,14 +624,26 @@ overflow-x:auto;
 /* ========================= */
 
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 60px;
+
+  border-bottom:1px solid #00ff9c;
+  background:#0b0f14;
+
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .sidebar {
-  position: sticky;
-  top: 100px;
+  width:260px;
+  margin-right:40px;
+
+  position:sticky;
+  top:100px;
 }
 
 /* ========================= */
