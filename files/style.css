@@ -518,7 +518,7 @@ overflow-x:auto;
   padding: 2px 6px;
 }
 
-/* glitch suave */
+/* soft glitch */
 @keyframes glitch {
   0% {
     text-shadow: 0 0 5px #00ffcc;
@@ -534,5 +534,164 @@ overflow-x:auto;
   }
   100% {
     text-shadow: 0 0 5px #00ffcc;
+  }
+}
+
+/* ========================= */
+/* SEARCH SYSTEM */
+/* ========================= */
+
+#searchBtn {
+  background: transparent;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-family: monospace;
+  transition: 0.2s;
+}
+
+#searchBtn:hover {
+  box-shadow: 0 0 10px #00ff9c;
+  text-shadow: 0 0 5px #00ff9c;
+}
+
+/* panel */
+.search-panel {
+  border-bottom: 1px solid #00ff9c;
+  padding: 15px 60px;
+  background: rgba(0, 15, 15, 0.9);
+  animation: fadeIn 0.25s ease;
+}
+
+/* hide */
+.hidden {
+  display: none;
+}
+
+/* input */
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  background: #0b0f14;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  margin-bottom: 10px;
+  font-family: monospace;
+}
+
+#searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+/* ========================= */
+/* TAG FILTERS */
+/* ========================= */
+
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-filters span {
+  border: 1px solid #00ff9c;
+  padding: 4px 10px;
+  margin: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tag-filters span:hover {
+  background: #00ff9c;
+  color: black;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+.tag-filters span.active {
+  background: #00ff9c;
+  color: black;
+  box-shadow: 0 0 15px #00ff9c;
+}
+
+/* ========================= */
+/* PAGINATION */
+/* ========================= */
+
+#pagination {
+  text-align: center;
+  margin: 40px 0;
+}
+
+#pagination button {
+  margin: 5px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#pagination button:hover {
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+#pagination button.active {
+  background: #00ff9c;
+  color: black;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+/* ========================= */
+/* STICKY ELEMENTS */
+/* ========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+/* ========================= */
+/* SCROLLBAR */
+/* ========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff9c;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 20px #00ff9c;
+}
+
+/* ========================= */
+/* SOFT ANIMATION */
+/* ========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
