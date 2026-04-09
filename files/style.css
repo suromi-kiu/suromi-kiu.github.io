@@ -172,76 +172,57 @@ box-shadow: 0 0 10px #00ff9c;
 }
 
 
-/* -----------------copy button and code blocks----------------- */
+/* -----------------copy button and code blocks modded 9/04/2024----------------- */
 
 .terminal-code{
+  background:#0b0f14;
+  border:1px solid #00ff9c;
+  border-radius:8px;
+  margin-top:25px;
+  overflow:hidden;
+  box-shadow: 0 0 10px rgba(0,255,156,0.2);
+}
 
-background:#0b0f14;
-
-border:1px solid #00ff9c;
-
-border-radius:8px;
-
-margin-top:25px;
-
-overflow:hidden;
-
+/* minimalist bar */
+.terminal-code::after{
+  content:"";
+  display:block;
+  height:3px; /* thin bar */
+  background:#00ff9c;
+  opacity:0.8;
 }
 
 .terminal-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-background:#111821;
-
-padding:8px 14px;
-
-font-size:13px;
-
-border-bottom:1px solid #00ff9c;
-
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#111821;
+  padding:6px 12px;
+  font-size:12px;
+  border-bottom:1px solid rgba(0,255,156,0.4);
 }
 
 .copy-btn{
-
-background:transparent;
-
-border:1px solid #00ff9c;
-
-color:#00ff9c;
-
-padding:3px 8px;
-
-cursor:pointer;
-
-font-family:monospace;
-
+  background:transparent;
+  border:1px solid #00ff9c;
+  color:#00ff9c;
+  padding:2px 6px;
+  font-size:11px;
+  cursor:pointer;
+  font-family:monospace;
 }
 
 .copy-btn:hover{
-
-background:#00ff9c;
-
-color:black;
-
+  background:#00ff9c;
+  color:black;
 }
 
 .terminal-code pre{
-
-margin:0;
-
-padding:18px;
-
-color:#00ff9c;
-
-font-family:monospace;
-
-overflow-x:auto;
-
+  margin:0;
+  padding:18px;
+  color:#00ff9c;
+  font-family:monospace;
+  overflow-x:auto;
 }
 
 /* -------------PDF Viewer Style----------------*/
