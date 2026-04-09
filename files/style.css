@@ -1,4 +1,5 @@
 body {
+  color: #00ff9c;
   background-color: #0b0f14;
   background-image:
     radial-gradient(#00ff9c22 1px, transparent 1px);
@@ -9,6 +10,25 @@ body {
 @keyframes moveStars {
   from { background-position: 0 0; }
   to { background-position: 1000px 1000px; }
+}
+
+p,span,li {
+  color: #00ff9c;
+}
+
+h1. h2. h3, h4{
+  color: #00ff9c;
+}
+
+a {
+  color: #00ffcc;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: #00ff9c;
+  text-shadow: 0 0 8px #00ff9c;
 }
 
 .logo{
@@ -225,6 +245,28 @@ box-shadow: 0 0 10px #00ff9c;
   color:#00ff9c;
   font-family:monospace;
   overflow-x:auto;
+}
+
+/* ========================= */
+/* SCROLLBAR TERMINAL */
+/* ========================= */
+
+.terminal-code pre::-webkit-scrollbar {
+  height: 6px; /* 👈 más pequeña */
+}
+
+.terminal-code pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-code pre::-webkit-scrollbar-thumb {
+  background: #00ff9c;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #00ff9c;
+}
+
+.terminal-code pre::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 15px #00ff9c;
 }
 
 /* -------------PDF Viewer Style----------------*/
@@ -605,6 +647,10 @@ box-shadow: 0 0 10px #00ff9c;
 /* ========================= */
 /* STICKY ELEMENTS */
 /* ========================= */
+
+.navbar, .logo, .menu a {
+  color: #00ff9c;
+}
 
 .navbar {
   display:flex;
