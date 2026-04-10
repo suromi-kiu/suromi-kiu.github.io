@@ -13,7 +13,7 @@
 <body>
 
 <nav class="navbar">
-<div class="logo">suromi@terminal:~/arch-hyprland$</div>
+<div class="logo">suromi@terminal:~/arch-Installation$</div>
 <div class="menu">
 <a href="../../index.html">home</a>
 </div>
@@ -28,9 +28,15 @@ The main goal of this guide is to help new users install an Arch Linux system wi
 <br><br>
 By the end of this guide, you will have a minimal Arch Linux system installed and ready for customization. You can then install a window manager such as <a href=../ArchLinux_and_hyprland/index.html>Hyprland</a>, i3wm, Sway, Bspwm, Qtile or a desktop environment like <a href="../kde_plasma_on_archlinux/index.html">KDE Plasma.</a>
 </p>
-<br><br>
 
-<h2>Set up keyboard layout</h2>
+<div class="toc">
+<p>Sections loaded:</p>
+<ul id='toc-list'>
+</ul>
+</div>
+
+<br>
+<h2 id="Set_up">Set up keyboard layout</h2>
 <p>If you want to know all the available keyboard maps, you must apply the next command</p>
 <div class="terminal-code">
 <div class="terminal-header">
@@ -68,7 +74,7 @@ loadkeys it
 <br><br>
 
 
-<h2>Internet Connection (wifi)</h2>
+<h2 id="Int_con">Internet Connection (wifi)</h2>
 <p>By running the next command, you should see an output like this</p>
 <div class="terminal-code">
 <div class="terminal-header">
@@ -131,7 +137,7 @@ iwctl
 <br><br>
 
 
-<h2>System Clock</h2>
+<h2 id="clock">System Clock</h2>
 
 <p>To activate the ntp you can do:</p>
 <div class="terminal-code">
@@ -145,7 +151,7 @@ systemctl enable systemd-timesyncd.service
 </div>
 <br><br>
 
-<h2>Disk Partitioning</h2>
+<h2 id="disk">Disk Partitioning</h2>
 
 <p>First, you have to check your device, you can use the following command:</p>
 <div class="terminal-code">
@@ -227,7 +233,7 @@ suromi@archlinux:~/Images$ kitty +kitten icat cfdisk.png
 </div>
 <br><br>
 
-<h2>Formating and Mounting partitions</h2>
+<h2 id="Formating">Formating and Mounting partitions</h2>
 
 <p>I chose btrfs as filesystem due to is generally considered better than ext4 for modern desktop or workstation use because of its advanced data integrity, snapshot, and volume management features:</p>
 <div class="terminal-code">
@@ -674,5 +680,6 @@ nvidia-smi
 </div>
 <script src="../../files/image_clicker.js"></script>
 <script src="../../files/copy_button.js"></script>
+<script src="hola.js"></script>
 </body>
 </html>
