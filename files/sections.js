@@ -2,7 +2,6 @@ const tocList = document.getElementById("toc-list");
 const sections = document.querySelectorAll("h2");
 let links = [];
 
-// generar índice automático
 sections.forEach((section, index) => {
   if (!section.id) {
     section.id = "section-" + index;
@@ -19,7 +18,6 @@ sections.forEach((section, index) => {
   links.push(a);
 });
 
-// detectar sección activa
 window.addEventListener("scroll", () => {
   let current = "";
 
