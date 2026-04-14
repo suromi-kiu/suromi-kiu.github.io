@@ -25,7 +25,7 @@
 <div class="project-page">
 <h1>> Installing ArchLinux + hyprland</h1>
 <p>
-The main goal of this guide is trying to solve the cap HTB machine, we are going to use <a href="https://wiki.archlinux.org/title/OpenVPN">opevpn</a> and <a href=""https://www.wireshark.org/docs/man-pages/tshark.html>tshark</a> to look for a password and user in the 0.pcap file
+The main goal of this guide is trying to solve the cap HTB machine, we are going to use <a href="https://wiki.archlinux.org/title/OpenVPN">opevpn</a> and <a href="https://www.wireshark.org/docs/man-pages/tshark.html">tshark</a> to look for a password and user in the 0.pcap file
 </p>
 
 <div class="preview-block">
@@ -54,7 +54,7 @@ suromi@archlinux:~/Images$ kitty +kitten -icat htb.png
 </div>
 <br>
 
-<h2 id="First steps">First steps</h2>
+<h2 id="First steps">Download and Connecting to your vpn</h2>
 <p>
 We have to download the 'US Machines 3' vpn, click on the following section 
 </p>
@@ -76,6 +76,43 @@ suromi@archlinux:~/Images$ kitty +kitten -icat click_us_machines3.png
 </div>
 <div id="image-viewer" onclick="closeImage()">
 <img id="fullscreen-img">
+</div>
+<br>
+
+<p>Then we have to install openvpn (if you do not have it)</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+# Because I am in Archlinux I am going to use pacman, but if you are not using Archlinux, search the way to install openvpn for your distribution
+sudo pacman -S openvpn
+</code></pre>
+</div>
+<br>
+
+<p>Then use openvpn to connect to your HTB vpn by executing the following command</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo openvpn us_machines.ovpn
+</code></pre>
+</div>
+<br>
+
+<p>Then use openvpn to connect to your HTB vpn by executing the following command</p>
+<div class="terminal-code">
+<div class="terminal-header">
+<span>terminal</span>
+<button class="copy-btn">copy</button>
+</div>
+<pre><code id="code1">
+sudo openvpn us_machines.ovpn
+</code></pre>
 </div>
 <br>
 
