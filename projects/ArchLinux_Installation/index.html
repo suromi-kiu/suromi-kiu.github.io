@@ -256,6 +256,10 @@ mount /dev/sda2 /mnt
 <button class="copy-btn">copy</button>
 </div>
 <pre><code id="code1">
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@home
+umount /mnt
+
 mount -o compress=zstd,subvol=@ /dev/sda2 /mnt
 mkdir -p /mnt/home
 mount -o compress=zstd,subvol=@home /dev/sda2 /mnt/home
